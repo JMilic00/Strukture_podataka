@@ -22,7 +22,6 @@ void unosKraj(Position, Position);
 Position pronalazak(Position, char*);
 Position pronalazakPret(Position, char*);
 void brisi(Position, char*);
-void unos(char* ime, char* prezime, int* god);//unos je problem
 
 int main() {
 	Position head = NULL, p, n;

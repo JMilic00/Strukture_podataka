@@ -1,0 +1,16 @@
+﻿  Zadatak2.c
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(51): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(51): warning C4024: 'unosPocetak': different types for formal and actual parameter 1
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(52): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(52): warning C4024: 'Ispis': different types for formal and actual parameter 1
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(67): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(67): warning C4024: 'unosKraj': different types for formal and actual parameter 1
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(68): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(68): warning C4024: 'Ispis': different types for formal and actual parameter 1
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(73): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(73): warning C4024: 'pronalazak': different types for formal and actual parameter 1
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(80): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(80): warning C4024: 'brisi': different types for formal and actual parameter 1
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(81): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 2\zadatak 2\zadatak2.c(81): warning C4024: 'Ispis': different types for formal and actual parameter 1
+  ZADATAK 2.vcxproj -> C:\Users\jakov\Documents\Jakov Programiranje\Strukture_podataka\ZADATAK 2\Debug\ZADATAK 2.exe

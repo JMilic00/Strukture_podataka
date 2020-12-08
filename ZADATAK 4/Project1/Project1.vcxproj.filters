@@ -23,7 +23,7 @@
     <Text Include="..\lista.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="..\lista1.txt">
+    <Text Include="lista2.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

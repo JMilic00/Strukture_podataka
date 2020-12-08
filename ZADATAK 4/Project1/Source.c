@@ -16,6 +16,7 @@ typedef struct polinom {
 }Polinom;
 
 void Ispis(Position);
+void Ispis2(Position);
 void unosPocetak(Position, Position);
 void unosKraj(Position, Position);
 void sortUnos(Position, int, int);
@@ -26,24 +27,40 @@ Polinom Zbroji(Position, Position);
 void ZbrojiSusjeda(Position);
 void brisi(Position, int);
 Position pronalazakPret(Position, int);
+Polinom mnozenje(Position, Position);
 
 int main() {
 	Polinom head1;
 	Polinom head2;
-	Polinom p;
-	 head1.next = NULL;
-	 head2.next = NULL;
+	Polinom p,t;
+	head1.next = NULL;
+	head2.next = NULL;
 	ispisi_listu1(&head1);
 	ispisi_listu2(&head2);
+
 	Ispis(&head1);
-	Ispis(&head2);
-	//ZbrojiSusjeda(&head1);
+	Ispis2(&head2);
+
+	ZbrojiSusjeda(&head1);
 	ZbrojiSusjeda(&head2);
-	p = Zbroji(&head1, &head2);
+
+	puts("NAKON ZBROJEVA SUSJEDA JEDNAKIH EXPONENATA");
 	Ispis(&head1);
-	Ispis(&head2);
+	Ispis2(&head2);
+	puts("");
+
+	p = Zbroji(&head1, &head2);
+
+	puts("ZBROJ POLINOMA: ");
 	Ispis(&p);
-	//Ispis(&p);
+
+	t = mnozenje(&head1, &head2);
+
+	puts("UMNOZAK POLINOMA: ");
+
+	ZbrojiSusjeda(&t);
+	Ispis(&t);
+
 
 	return 0;
 }
@@ -57,9 +74,11 @@ void ZbrojiSusjeda(Position a)
 				prev->next = a->next;
 				free(a);
 				a = prev->next;
-			}
-		prev = prev->next;
-		a = a->next;
+		}
+		else {
+			a = a->next;
+			prev = prev->next;
+		}
 		}
 }
 
@@ -82,7 +101,17 @@ void Ispis(Position head)
 	printf("KONTENT LISTE: \n\n");
 	head = head->next;
 	for (head; head != NULL; head = head->next) {
-		printf("%dX^%d +", head->koef, head->exp);
+		printf("%dX^%d ", head->koef, head->exp);
+	}
+	printf("\r\n\n");
+}
+
+void Ispis2(Position head)
+{
+	printf("KONTENT LISTE2: \n\n");
+	head = head->next;
+	for (head; head != NULL; head = head->next) {
+		printf("%dX^%d ", head->koef, head->exp);
 	}
 	printf("\r\n\n");
 }
@@ -109,7 +138,7 @@ Position pronalazakPret(Position p, int exp) {
 		pret = p;
 		p = p->next;
 	}
-	if (p == NULL) {					//ode je bilo krivo pisalo je p->next=NULL
+	if (p == NULL) {				
 		printf("ne postoji!\n");
 		return NULL;
 	}
@@ -158,7 +187,7 @@ void ispisi_listu2(Position head)
 
 	int koef1, exp1;
 	FILE *fp;
-	fp = fopen("lista1.txt", "r");
+	fp = fopen("lista2.txt", "r");
 	if (fp == NULL)
 		printf("alo ej!!!");
 	while (!feof(fp)) {
@@ -171,24 +200,22 @@ Polinom Zbroji(Position a, Position b) {
 	Position d=NULL;
 	Polinom c;
 	c.next = NULL;
-	int eks, koj;
+	a = a->next;
+	b = b->next;
 	while (a != NULL && b != NULL) {
 		if (a->exp == b->exp) {
-			eks = a->exp;
-			koj = a->koef + b->koef;
-			d = noviPolinom(koj, eks);
-			unosKraj(&c, d);
-		}
-		else if (a->exp > b->exp) {
-			unosKraj(&c, b);
-			a = a -> next;
-		}
-		else if (a->exp < b->exp) {
-			unosKraj(&c, a);
+			unosKraj(&c, noviPolinom(a->koef + b->koef, a->exp));
+			a = a->next;
 			b = b->next;
 		}
-		a = a->next;
-		b = b->next;
+		else if (a->exp < b->exp) {
+			unosKraj(&c, noviPolinom(a->koef, a->exp));
+			a = a -> next;
+		}
+		else if (a->exp > b->exp) {
+			unosKraj(&c, noviPolinom(b->koef, b->exp));
+			b = b->next;
+		}
 	}
 	if (a == NULL) {
 		while (b != NULL) {
@@ -200,23 +227,19 @@ Polinom Zbroji(Position a, Position b) {
 			unosKraj(&c, a);
 			a = a->next;
 		}
-		}
+	}
 	return c;
 	}
-/*Position mnozenje(Position head1, Position head2)
+
+Polinom mnozenje(Position head1, Position head2)
 {
-	Position c = NULL,p = NULL;
-	p = malloc(sizeof(Polinom));
-	p->next = NULL;
+	Position a,b;
+	Polinom c;
+	c.next = NULL;
 
-	Position reg1;		//registri za setanje po listama
-	Position reg2;
-
-	for (reg1 = head1->next; reg1 != NULL; reg1 = reg1->next)
-		for (reg2 = head2->next; reg2 != NULL; reg2 = reg2->next)
-		{
-			temp = stvoriPolinom((reg1->Koeficijent*reg2->Koeficijent), (reg1->Exponent + reg2->Exponent));
-			sortiraniUnos(c, p);
-		}
+	for (a = head1->next; a != NULL; a = a->next) 
+		for (b = head2->next; b != NULL; b = b->next)
+			sortUnos(&c, (a->koef*b->koef), (a->exp + b->exp));
+	
 	return c;
-}*/
+}

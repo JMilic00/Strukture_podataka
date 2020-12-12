@@ -1,95 +1,121 @@
 #define _CRT_SECURE_NO_WARNINGS
-#pragma warning(disable:4996)
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <malloc.h>
-#include <time.h> 
 
-struct stog;
-typedef struct stog* Position;
-typedef struct stog {
+struct lista;
+typedef struct lista* Position;
+typedef struct lista {
 	int el;
 	Position next;
-}Stog;
+}Lista;
+
 
 int pop(Position);
-Position noviclan(void);
-void Ispis(Position);
-void push(Position, Position);
+void push(Position, int);
+int racunaj(char, int, int);
 
 int main() {
-	Stog S;
-	Position d;
-	srand((unsigned)time(NULL));
+	FILE* f;
+	Lista head;
+	int n = 0;
+	head.next = NULL;
+	char* buffer = NULL;
 	char c;
-	int broj;
-	S.next = NULL;
+	int x = 0, y = 0, r = 0,broj, provjera,velicina,velicinabuffera=0;
 	
 
+	f = fopen("postfix.txt", "r");
+	buffer = (char *)malloc(1000 * sizeof(char));
+
+	if (f==NULL) {
+		puts("Greška pri otvaranju!\n");
+		return 0;
+	}
+
+	while (!feof(f)) {
+		fgets(buffer, 1000, f);
+	}
+
+	velicina = strlen(buffer);
+
+	while (velicinabuffera < velicina) {
+
+			provjera = sscanf(buffer, "%d %n", &broj, &n);
+
+		if (provjera != 0 && provjera != EOF) {
+
+			push(&head, broj);
+
+		}else{
+
+			provjera = sscanf(buffer, "%c %n", &c, &n);
+			x=pop(&head);
+			y=pop(&head);
+			r = racunaj(c, x, y);
+			push(&head, r);
+
+		}
+
+		buffer += n;
+		velicinabuffera += n;
+
+	}
+	printf("Rezultat je: %d", head.next->el);
+
+	fclose(f);
 	system("pause");
 	return 0;
 }
 
 
-Position noviclan(void)
+void push(Position S, int c)
 {
 	Position p;
-	int el;
 
-	p = (Position)malloc(sizeof(struct stog));
-	p->el = el;
-	p->next = NULL;
+	p = (Position)malloc(sizeof(struct lista));
+	
+		p->el = c;
+		p->next = S->next;
+		S->next = p;
 
-	return p;
 }
 
-void Ispis(Position S)
+int pop(Position head)
 {
-	printf("elementi stoga : ");
-	S = S->next;
-	for (S; S != NULL; S = S->next) {
-		printf("%d ", S->el);
-	}
-	printf("\r\n\n");
-}
-
-void push(Position S, Position p)
-{
-	p->next = S->next;
-	S->next = p;
-}
-
-int pop(Position S)
-{
-	int x;
 	Position temp;
+	int x;
 
-	if (S->next != NULL) {
-		x = S->next->el;
-		temp = S->next;
-		S->next = temp->next;
+	if (head->next != NULL) {
+		temp = head->next;
+		head->next = temp->next;
+		x = temp->el;
 		free(temp);
-		return x;
 	}
-	return -1;
+	return x;
 }
 
-void ubaci(Position head)
+int racunaj(char op, int x, int y)
 {
-	Position p = NULL;
-	char el;
-	int br = 0, result = 1;
-	FILE *f;
-	f = fopen("lista.txt", "r");
-	while (fscanf(f, " %c " , el) != EOF)
+	int r = 0;
+	switch (op)
 	{
-		p = noviStudent(el);
-		
-			push(head, p);
-		
-		printf("\r\nList loaded\n");
-		Ispis(head);
-		fclose(f);
+	case '+':
+		r = x + y;
+		break;
+	case '-':
+		r = x - y;
+		break;
+	case '*':
+		r = x * y;
+		break;
+	case '/':
+		if (y > 0)
+			r = x / y;
+		break;
+	default:
+		printf("Greska");
 	}
+	return r;
 }

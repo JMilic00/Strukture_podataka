@@ -1,0 +1,6 @@
+﻿  Source.c
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 8\project1\project1\source.c(43): warning C4133: '=': incompatible types - from 'stack_Position' to 'Position'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 8\project1\project1\source.c(44): warning C4013: 'strcpy' undefined; assuming extern returning int
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 8\project1\project1\source.c(58): warning C4013: 'strcmp' undefined; assuming extern returning int
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 8\project1\project1\source.c(56): warning C4101: 'a': unreferenced local variable
+  Project1.vcxproj -> C:\Users\jakov\Documents\Jakov Programiranje\Strukture_podataka\ZADATAK 8\Project1\Debug\Project1.exe

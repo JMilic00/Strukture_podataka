@@ -1,0 +1,12 @@
+﻿  Source.c
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(46): warning C4133: '=': incompatible types - from 'Stablo' to 'Position'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(74): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(83): warning C4133: 'function': incompatible types - from 'Stablo' to 'Position'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(86): warning C4047: '=': 'Stablo' differs in levels of indirection from 'int'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(87): warning C4047: '=': 'Stablo' differs in levels of indirection from 'int'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(88): warning C4133: 'function': incompatible types - from 'Stablo' to 'Position'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(95): warning C4047: '=': 'Stablo' differs in levels of indirection from 'int'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(119): warning C4047: 'return': 'int' differs in levels of indirection from 'Stablo'
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(125): warning C4028: formal parameter 2 different from declaration
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 10\project1\project1\source.c(148): warning C4013: 'isdigit' undefined; assuming extern returning int
+  Project1.vcxproj -> C:\Users\jakov\Documents\Jakov Programiranje\Strukture_podataka\ZADATAK 10\Project1\Debug\Project1.exe

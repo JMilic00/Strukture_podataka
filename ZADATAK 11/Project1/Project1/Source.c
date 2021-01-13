@@ -128,10 +128,11 @@ void dodaj(Position hash,Position d)
 				prev->next = d;
 				return;
 			}
-			else{
+			else if(strcmp(d->ime, hash->ime) > 0){
 				prev = prev->next;
 				d->next = prev->next;
 				prev->next = d;
+				return;
 			}
 		}
 		prev = prev->next;

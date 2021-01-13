@@ -1,5 +1,5 @@
 ﻿  Source.c
 c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 11\project1\project1\source.c(72): warning C4047: 'function': 'Position' differs in levels of indirection from 'Position [11]'
 c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 11\project1\project1\source.c(72): warning C4024: 'ispis': different types for formal and actual parameter 1
-c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 11\project1\project1\source.c(158): warning C4028: formal parameter 1 different from declaration
+c:\users\jakov\documents\jakov programiranje\strukture_podataka\zadatak 11\project1\project1\source.c(159): warning C4028: formal parameter 1 different from declaration
   Project1.vcxproj -> C:\Users\jakov\Documents\Jakov Programiranje\Strukture_podataka\ZADATAK 11\Project1\x64\Debug\Project1.exe

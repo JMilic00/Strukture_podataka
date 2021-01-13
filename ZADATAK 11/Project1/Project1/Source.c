@@ -80,6 +80,9 @@ int main()
 		case'p':
 			return EXIT_SUCCESS;
 			break;
+		default:
+			printf("kriva komanda pokusaj ponovno\n");
+			break;
 		}
 	}
 	return EXIT_SUCCESS;
